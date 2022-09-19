@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
-import base64
-import matplotlib.pyplot as plt
+#import base64
+#import matplotlib.pyplot as plt
 import numpy as np
 
 df = pd.read_csv('v1_2023_predictions.csv').drop(['Unnamed: 0'], axis = 1)
