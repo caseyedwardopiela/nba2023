@@ -48,15 +48,15 @@ else:
 
 # Filtering data - Team
 if selected_team == 'All Teams':
-    df_selected_team = df_selected
+    df_selected = df_selected
 else:
-    df_selected_team = df_selected[df_selected['Player_Team'] == selected_team]
+    df_selected = df_selected[df_selected['Player_Team'] == selected_team]
   
 # Filtering data - Position
 if selected_position == 'All Positions':
-    df_selected_team = df_selected_team
+    df_selected = df_selected
 else:
-    df_selected_team = df_selected_team[df_selected_team['Player_Position'] == selected_position]
+    df_selected = df_selected[df_selected['Player_Position'] == selected_position]
 
 
 st.header('Displaying Player(s)...')
