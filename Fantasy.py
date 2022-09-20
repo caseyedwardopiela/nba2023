@@ -24,7 +24,7 @@ selected_team = st.sidebar.selectbox('Which team would you like to see?',
 
 # Filtering data
 
- df_selected_team = df[df['Player_Team'].isin(selected_team)]
+df_selected_team = df[df['Player_Team'].isin(selected_team)]
 
 
 st.header('Display Players on Selected Team')
