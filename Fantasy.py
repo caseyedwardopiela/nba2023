@@ -10,7 +10,9 @@ st.title('2022-2023 NBA Fantasy Score Predictions')
 
 st.markdown("""
 This app pulls historical data from Basketball-Reference.com, including college, international, and regular season stats. After compiling everything,
-it runs a combination of several machine learning algorithms to predict all of the traditional stats for each player this coming season.
+it runs a combination of several machine learning algorithms to predict all of the traditional stats for each player this coming season. 
+
+### Last Updated: 20 September 2022
 """)
 
 st.sidebar.header('User Input Features')
@@ -29,11 +31,17 @@ sorted_position_unique = sorted(sorted_position_unique)
 selected_position = st.sidebar.selectbox('Which position would you like to see?',
     sorted_position_unique) 
 
-# Filtering data
+# Filtering data - Team
 if selected_team == '!ALL_Teams':
     df_selected_team = df
 else:
     df_selected_team = df[df['Player_Team'] == selected_team]
+  
+# Filtering data - Position
+if selected_position == '!ALL_Teams':
+    df_selected_team = df_selected_team
+else:
+    df_selected_team = df_selected_team[df_selected_team['Player_Position'] == selected_position]
 
 
 st.header('Display Players on Selected Team')
