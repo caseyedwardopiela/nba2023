@@ -44,7 +44,7 @@ if selected_player == 'All Players':
 else:
    selected_team = 'All Teams'
    selected_position = 'All Positions'
-   df_selected = df[df['Player_Name] == selected_player]]
+   df_selected = df[df['Player_Name'] == selected_player]
 
 # Filtering data - Team
 if selected_team == 'All Teams':
