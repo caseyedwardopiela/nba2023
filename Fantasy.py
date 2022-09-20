@@ -12,10 +12,10 @@ st.markdown("""
 This app pulls historical data from Basketball-Reference.com, including college, international, and regular season stats. After compiling everything,
 it runs a combination of several machine learning algorithms to predict all of the traditional stats for each player this coming season. 
 
-### Last Updated: 20 September 2022
+##### Last Updated: 20 September 2022
 """)
 
-st.sidebar.header('User Input Features')
+st.sidebar.header('User Input Selection')
 
 # Sidebar - Team Selection
 sorted_team_unique = list(df['Player_Team'].unique())
@@ -44,6 +44,6 @@ else:
     df_selected_team = df_selected_team[df_selected_team['Player_Position'] == selected_position]
 
 
-st.header('Display Players on Selected Team')
+st.header('Displaying Player(s)...)
 st.write('Data Dimension: ' + str(df_selected_team.shape[0]) + ' rows and ' + str(df_selected_team.shape[1]) + ' columns.')
 st.dataframe(df_selected_team)
