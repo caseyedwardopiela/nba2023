@@ -25,7 +25,7 @@ selected_team = st.sidebar.multiselect('Team', sorted_team_unique, sorted_team_u
 if selected_team != '!All':
   df_selected_team = df[ (df['Player_Team'].isin(selected_team))]
 else:
-  df_selected_team = df
+  df_selected_team = df.copy()
 
 st.header('Display Players on Selected Team')
 st.write('Data Dimension: ' + str(df_selected_team.shape[0]) + ' rows and ' + str(df_selected_team.shape[1]) + ' columns.')
