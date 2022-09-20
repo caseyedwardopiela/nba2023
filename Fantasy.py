@@ -17,6 +17,13 @@ it runs a combination of several machine learning algorithms to predict all of t
 
 st.sidebar.header('User Input Selection')
 
+# Sidebar - Name Selection
+sorted_players_unique = list(df['Player_Name'].unique())
+sorted_players_unique = sorted(sorted_players_unique)
+sorted_players_unique.insert(0,'All Players')
+selected_player = st.sidebar.selectbox('Which position would you like to see?',
+    sorted_players_unique) 
+
 # Sidebar - Team Selection
 sorted_team_unique = list(df['Player_Team'].unique())
 sorted_team_unique = sorted(sorted_team_unique)
@@ -31,11 +38,19 @@ sorted_position_unique.insert(0,'All Positions')
 selected_position = st.sidebar.selectbox('Which position would you like to see?',
     sorted_position_unique) 
 
+# Filtering data - Name
+if selected_player == 'All Players':
+    df_selected = df
+else:
+   selected_team = 'All Teams'
+   selected_position = 'All Positions'
+   df_selected = df[df['Player_Name] == selected_player]
+
 # Filtering data - Team
 if selected_team == 'All Teams':
-    df_selected_team = df
+    df_selected_team = df_selected
 else:
-    df_selected_team = df[df['Player_Team'] == selected_team]
+    df_selected_team = df_selected[df_selected['Player_Team'] == selected_team]
   
 # Filtering data - Position
 if selected_position == 'All Positions':
@@ -45,5 +60,5 @@ else:
 
 
 st.header('Displaying Player(s)...')
-st.write('Data Dimension: ' + str(df_selected_team.shape[0]) + ' rows and ' + str(df_selected_team.shape[1]) + ' columns.')
-st.dataframe(df_selected_team)
+st.write('Data Dimension: ' + str(df_selected.shape[0]) + ' rows and ' + str(df_selected.shape[1]) + ' columns.')
+st.dataframe(df_selected)
