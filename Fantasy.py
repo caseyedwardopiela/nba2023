@@ -16,11 +16,16 @@ it runs a combination of several machine learning algorithms to predict all of t
 st.sidebar.header('User Input Features')
 
 # Sidebar - Team Selection
-sorted_team_unique = sorted( df['Player_Team'].unique() )
+sorted_team_unique = list(df['Player_Team'].unique())
+sorted_team_unique.append('!ALL')
+sorted_team_unique = sorted(sorted_team_unique)
 selected_team = st.sidebar.multiselect('Team', sorted_team_unique, sorted_team_unique)
 
 # Filtering data
-df_selected_team = df[ (df['Player_Team'].isin(selected_team))]
+if selected_team != '!All':
+  df_selected_team = df[ (df['Player_Team'].isin(selected_team))]
+ else:
+  df_selected_team = df
 
 st.header('Display Players on Selected Team')
 st.write('Data Dimension: ' + str(df_selected_team.shape[0]) + ' rows and ' + str(df_selected_team.shape[1]) + ' columns.')
