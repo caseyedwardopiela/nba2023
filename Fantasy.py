@@ -69,7 +69,7 @@ if selected_stat == 'All Stats':
     df_selected = df_selected
 else:
     stats_list = ['Player_Name', 'Player_Team', 'Player_Position', selected_stat]
-    df_selected = df_selected.loc[:,stats_list]
+    df_selected = df_selected.loc[:,stats_list].sort_values(selected_stat)
 
 
 st.header('Displaying Player(s)...')
