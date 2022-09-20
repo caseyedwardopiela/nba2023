@@ -18,7 +18,7 @@ st.sidebar.header('User Input Features')
 # Sidebar - Team Selection
 sorted_team_unique = df['Player_Team'].unique()
 #sorted_team_unique.append('!ALL')
-#sorted_team_unique = sorted(sorted_team_unique)
+sorted_team_unique = sorted(sorted_team_unique)
 selected_team = st.sidebar.selectbox('Which team would you like to see?',
     sorted_team_unique)
 
