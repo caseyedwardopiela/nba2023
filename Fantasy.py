@@ -44,6 +44,6 @@ else:
     df_selected_team = df_selected_team[df_selected_team['Player_Position'] == selected_position]
 
 
-st.header('Displaying Player(s)...)
+st.header('Displaying Player(s)...')
 st.write('Data Dimension: ' + str(df_selected_team.shape[0]) + ' rows and ' + str(df_selected_team.shape[1]) + ' columns.')
 st.dataframe(df_selected_team)
