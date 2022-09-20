@@ -38,7 +38,7 @@ else:
     df_selected_team = df[df['Player_Team'] == selected_team]
   
 # Filtering data - Position
-if selected_position == '!ALL_Teams':
+if selected_position == '!ALL_Positions':
     df_selected_team = df_selected_team
 else:
     df_selected_team = df_selected_team[df_selected_team['Player_Position'] == selected_position]
