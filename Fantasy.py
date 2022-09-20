@@ -17,16 +17,15 @@ st.sidebar.header('User Input Features')
 
 # Sidebar - Team Selection
 sorted_team_unique = list(df['Player_Team'].unique())
-sorted_team_unique.append('!ALL')
+#sorted_team_unique.append('!ALL')
 sorted_team_unique = sorted(sorted_team_unique)
 selected_team = st.sidebar.selectbox('Which team would you like to see?',
     sorted_team_unique)
 
 # Filtering data
-if selected_team != '!All':
-  df_selected_team = df[df['Player_Team'].isin(selected_team)]
-else:
-  df_selected_team = df[~df['Player_Team'].isin(['no-team'])]
+
+ df_selected_team = df[df['Player_Team'].isin(selected_team)]
+
 
 st.header('Display Players on Selected Team')
 st.write('Data Dimension: ' + str(df_selected_team.shape[0]) + ' rows and ' + str(df_selected_team.shape[1]) + ' columns.')
