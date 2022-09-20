@@ -18,21 +18,21 @@ it runs a combination of several machine learning algorithms to predict all of t
 st.sidebar.header('User Input Selection')
 
 # Sidebar - Name Selection
-sorted_players_unique = list(df['Player_Name'].unique())
+sorted_players_unique = list(df['Player Name'].unique())
 sorted_players_unique = sorted(sorted_players_unique)
 sorted_players_unique.insert(0,'All Players')
 selected_player = st.sidebar.selectbox('Which player would you like to see?',
     sorted_players_unique) 
 
 # Sidebar - Team Selection
-sorted_team_unique = list(df['Player_Team'].unique())
+sorted_team_unique = list(df['Player Team'].unique())
 sorted_team_unique = sorted(sorted_team_unique)
 sorted_team_unique.insert(0,'All Teams')
 selected_team = st.sidebar.selectbox('Which team would you like to see?',
     sorted_team_unique)
 
 # Sidebar - Position Selection
-sorted_position_unique = list(df['Player_Position'].unique())
+sorted_position_unique = list(df['Player Position'].unique())
 sorted_position_unique = sorted(sorted_position_unique)
 sorted_position_unique.insert(0,'All Positions')
 selected_position = st.sidebar.selectbox('Which position would you like to see?',
@@ -50,25 +50,25 @@ if selected_player == 'All Players':
 else:
    selected_team = 'All Teams'
    selected_position = 'All Positions'
-   df_selected = df[df['Player_Name'] == selected_player]
+   df_selected = df[df['Player Name'] == selected_player]
 
 # Filtering data - Team
 if selected_team == 'All Teams':
     df_selected = df_selected
 else:
-    df_selected = df_selected[df_selected['Player_Team'] == selected_team]
+    df_selected = df_selected[df_selected['Player Team'] == selected_team]
   
 # Filtering data - Position
 if selected_position == 'All Positions':
     df_selected = df_selected
 else:
-    df_selected = df_selected[df_selected['Player_Position'] == selected_position]
+    df_selected = df_selected[df_selected['Player Position'] == selected_position]
   
 # Filtering data - Stat
 if selected_stat == 'All Stats':
     df_selected = df_selected
 else:
-    stats_list = ['Player_Name', 'Player_Team', 'Player_Position', selected_stat]
+    stats_list = ['Player Name', 'Player Team', 'Player Position', selected_stat]
     df_selected = df_selected.loc[:,stats_list].sort_values(selected_stat, ascending = False)
 
 
