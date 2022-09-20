@@ -22,6 +22,13 @@ sorted_team_unique = sorted(sorted_team_unique)
 selected_team = st.sidebar.selectbox('Which team would you like to see?',
     sorted_team_unique)
 
+# Sidebar - Position Selection
+sorted_position_unique = list(df['Player_Position'].unique())
+sorted_position_unique.append('!ALL_Positions')
+sorted_position_unique = sorted(sorted_position_unique)
+selected_position = st.sidebar.selectbox('Which position would you like to see?',
+    selected_position) 
+
 # Filtering data
 if selected_team == '!ALL_Teams':
     df_selected_team = df
