@@ -16,7 +16,7 @@ it runs a combination of several machine learning algorithms to predict all of t
 st.sidebar.header('User Input Features')
 
 # Sidebar - Team Selection
-sorted_team_unique = list(df['Player_Team'].unique())
+sorted_team_unique = df['Player_Team'].unique()
 #sorted_team_unique.append('!ALL')
 sorted_team_unique = sorted(sorted_team_unique)
 selected_team = st.sidebar.selectbox('Which team would you like to see?',
