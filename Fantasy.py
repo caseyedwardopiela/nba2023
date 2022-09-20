@@ -38,6 +38,12 @@ sorted_position_unique.insert(0,'All Positions')
 selected_position = st.sidebar.selectbox('Which position would you like to see?',
     sorted_position_unique) 
 
+# Sidebar - Position Selection
+sorted_stat_unique = list(df.columns)[3:]
+sorted_stat_unique.insert(0,'All Stats')
+selected_stat = st.sidebar.selectbox('Which stat would you like to see?',
+    sorted_stat_unique) 
+
 # Filtering data - Name
 if selected_player == 'All Players':
     df_selected = df
@@ -57,6 +63,13 @@ if selected_position == 'All Positions':
     df_selected = df_selected
 else:
     df_selected = df_selected[df_selected['Player_Position'] == selected_position]
+  
+# Filtering data - Stat
+if selected_stat == 'All Stats':
+    df_selected = df_selected
+else:
+    stats_list = ['Player_Name', 'Player_Team', 'Player_Position', selected_stat]
+    df_selected = df_selected.loc[:,stats_list]
 
 
 st.header('Displaying Player(s)...')
