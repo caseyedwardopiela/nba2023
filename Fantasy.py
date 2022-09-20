@@ -24,7 +24,7 @@ selected_team = st.sidebar.multiselect('Team', sorted_team_unique, sorted_team_u
 # Filtering data
 if selected_team != '!All':
   df_selected_team = df[ (df['Player_Team'].isin(selected_team))]
- else:
+else:
   df_selected_team = df
 
 st.header('Display Players on Selected Team')
